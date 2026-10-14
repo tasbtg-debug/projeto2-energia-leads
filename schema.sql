@@ -6,6 +6,7 @@ create table if not exists public.energy_leads (
  whatsapp text not null,
  state char(2) not null,
  property_type text not null,
+ ownership text,
  bill_range text not null,
  benefit text not null,
  bill_holder text not null,
@@ -16,6 +17,7 @@ create table if not exists public.energy_leads (
  updated_at timestamptz not null default now(),
  constraint energy_leads_status_check check (status in ('Novo','Em contato','Em análise','Proposta enviada','Convertido','Não convertido'))
 );
+alter table public.energy_leads add column if not exists ownership text;
 alter table public.energy_leads enable row level security;
 -- Sem policies públicas: apenas backend com service_role ou usuários autorizados via políticas futuras.
 create index if not exists energy_leads_created_at_idx on public.energy_leads(created_at desc);
