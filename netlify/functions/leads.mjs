@@ -6,7 +6,7 @@ const values = {
   bill_range:['Até R$ 150','R$ 150 a R$ 300','R$ 300 a R$ 600','Acima de R$ 600','Não pago energia','Tenho placa'],
   benefit:['Não participo','Sim, participo de tarifa social ou baixa renda'],
   ownership:['Próprio','Alugado'],
-  bill_holder:['Sim','Não']
+  bill_holder:['Sim.','Não, proprietário do imóvel.','Não, parente ou familiar.']
 };
 export async function handler(event){
  if(event.httpMethod!=='POST') return response(405,{error:'Método não permitido'});
